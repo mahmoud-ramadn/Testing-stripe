@@ -23,7 +23,8 @@
 <script setup>
 import { loadStripe } from '@stripe/stripe-js'
 
-const stripePromise = loadStripe('pk_test_51QQ2RPFzNAdf45vAWJccm0AuSHJcsDo55emrOvVb64Y7YaH4gVE0JhkBlMNo5l9mjTZNuKD4lrTSL86mHE6oL4GS00lcbYQVXk') // استبدلها بمفتاحك العام
+// Load the Stripe public key dynamically from runtime config
+const stripePromise = loadStripe(useRuntimeConfig().public.STRIPE_PUBLIC_KEY)
 
 // بيانات المنتجات
 const products = [
@@ -31,7 +32,7 @@ const products = [
     id: 1,
     name: 'منتج مميز 1',
     price: 2000,
-    image: 'https://images.pexels.com/photos/320617/pexels-photo-320617.jpeg?auto=compress&cs=tinysrgb&w=800', // استبدل الصورة بمسار مناسب
+    image: 'https://images.pexels.com/photos/320617/pexels-photo-320617.jpeg?auto=compress&cs=tinysrgb&w=800',
   },
   {
     id: 2,
